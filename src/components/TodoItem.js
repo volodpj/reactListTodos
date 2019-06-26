@@ -4,20 +4,17 @@ import React from 'react';
 class TodoItem extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            
+            
+        }
     }
-    reqestUser = () => {
-        const reqest = fetch(this.state.urlUsers);
-        reqest.then((response) => {
-          response.json().then((data) => {
-            return data
-            })
-          })
-        } 
+   
       
     
 
     render(){
-
+        
         return (
             <table>
                 <tbody>
@@ -27,7 +24,7 @@ class TodoItem extends React.Component{
                             <td>{todo.id}</td>
                             <td>{todo.title}</td>
                             <td>
-                                {this.reqestUser().find((user) => {
+                                {this.props.users.find((user) => {
                                     return user.id === todo.userId
                                 })}
                             </td>
